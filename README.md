@@ -114,3 +114,79 @@ function App() {
   );
 }
 ```
+
+## 6. Update Parent State From Child
+https://codepen.io/bzzz-coding/pen/xxzXXeM
+My solution was to create a function called updateText, and passed it down using prop updateParentText to the child:
+```
+function Child({updateParentText}) {
+ 
+  return (
+    <>
+      <div>Child</div>
+      <button onClick={updateParentText}>Change Parent Value</button>
+    </>
+  );
+}
+
+function Parent() {
+  const [value, setValue] = React.useState(
+    "I need to be updated from my child"
+  );
+  
+  const updateText = () => {
+    setValue('Text updated!')
+  }
+
+  return (
+    <>
+      <h3>Update Parent State Challenge (Using Callback)</h3>
+      <div className="wrapper">
+        <div>Parent</div>
+        <div className="box-wrapper">{value}</div>
+      </div>
+
+      <div className="wrapper">
+        <Child updateParentText={updateText} />
+      </div>
+    </>
+  );
+}
+
+ReactDOM.render(<Parent />, document.getElementById("root"));
+```
+### Learning Note:
+The solution code passed down setValue instead of updateParentText. I'm not sure which is better, but the code looks simpler this way:
+```
+function Child({ setValue }) {
+  return (
+    <>
+      <div>Child</div>
+      <button onClick={() => setValue("Parent has been updated!")}>
+        Change Parent Value
+      </button>
+    </>
+  );
+}
+
+function Parent() {
+  const [value, setValue] = React.useState(
+    "I need to be updated from my child"
+  );
+
+  return (
+    <>
+      <h3>Update Parent State Challenge (Using Callback)</h3>
+      <div className="wrapper">
+        <div>Parent</div>
+        <div className="box-wrapper">{value}</div>
+      </div>
+
+      <div className="wrapper">
+        <Child setValue={setValue} />
+      </div>
+    </>
+  );
+}
+```
+
