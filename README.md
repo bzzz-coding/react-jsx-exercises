@@ -76,3 +76,41 @@ function App() {
   );
 }
 ```
+
+## 5. Disable Button If Input Is Empty
+https://codepen.io/bzzz-coding/pen/gOKGGaJ
+
+### Learning Note:
+At first, I was trying to "hide" the entire button with 
+`{text.length > 0 && <button>Submit</button>}`
+
+However, this is not "disable" means. Instead, I should use the disabled attribute. The disabled attribute also prevents the onClick event from firing.
+
+```
+function App() {
+  const [value, setValue] = React.useState("");
+
+  return (
+    <>
+      <h3>Disable Button Challenge</h3>
+      <input type="text" onChange={(e) => setValue(e.target.value)} />
+      <button disabled={value.length < 1}>Submit</button>
+    </>
+  );
+}
+```
+
+The code below (although not part of this exercise), shows how to disable a button once it has been clicked.
+```
+function App() {
+  const [value, setValue] = React.useState("");
+  const [clicked, setClicked] = React.useState(false)
+
+  return (
+    <>
+      <h3>Disable Button After It Has Been Clicked Once</h3>
+      <button onClick={() => setClicked(true)} disabled={clicked}>{clicked ? 'You have clicked this button' : 'You can click this button once'}</button>
+    </>
+  );
+}
+```
