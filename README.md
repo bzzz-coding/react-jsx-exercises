@@ -117,7 +117,8 @@ function App() {
 
 ## 6. Update Parent State From Child
 https://codepen.io/bzzz-coding/pen/xxzXXeM
-My solution was to create a function called updateText, and passed it down using prop updateParentText to the child:
+
+### My solution was to create a function called updateText, and passed it down using prop updateParentText to the child:
 ```
 function Child({updateParentText}) {
  
