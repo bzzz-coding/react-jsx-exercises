@@ -221,3 +221,15 @@ function App() {
   );
 }
 ```
+
+## 8. Adding Two Number Inputs And Displaying Total
+My Solution: https://codepen.io/bzzz-coding/pen/QWxOWVr
+Solution: https://codepen.io/angelo_jin/pen/BawrWzy
+
+### Learning Note:
+- Even when setting input type to "number", the `e.target.value` onChange has a type of String. My solution was to convert the two number strings into numbers in the addNums function. However, I could also do the conversion in the input onChange:
+```
+onChange={(e) => setNumber1(+e.target.value)}
+```
+
+- Total was set to 0 in useState, so the paragraph would show "Total: 0" if I add {total} to the <p> tag: `<p>Total: {total}</p>`. The solution used `<p>Total: {total || ""}</p>` to avoid displaying 0 before calculation.
