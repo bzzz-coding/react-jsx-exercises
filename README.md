@@ -233,3 +233,26 @@ onChange={(e) => setNumber1(+e.target.value)}
 ```
 
 - Total was set to 0 in useState, so the paragraph would show "Total: 0" if I add {total} to the <p> tag: `<p>Total: {total}</p>`. The solution used `<p>Total: {total || ""}</p>` to avoid displaying 0 before calculation.
+
+## 9. Create Counter App
+https://codepen.io/bzzz-coding/pen/OJEOJax
+
+## 10. Fetch Data from API
+https://codepen.io/bzzz-coding/pen/WNyXNqK
+
+### Learning Note:
+- Taking advantage of the impure function inside useEffect to fetch data from URL, reset userData, and leave an empty dependency array that acts like componentDidMount as in--only runs once.
+
+```
+const [userData, setUserData] = React.useState({});
+  
+  const getUserData = async () => {
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    setUserData(jsonData);
+  };
+  
+  React.useEffect(() => {
+    getUserData();
+  }, []);
+  ```
