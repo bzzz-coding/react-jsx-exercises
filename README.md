@@ -256,3 +256,6 @@ const [userData, setUserData] = React.useState({});
     getUserData();
   }, []);
   ```
+
+## 11. Filter List of Strings Based on Search Input
+https://codepen.io/bzzz-coding/pen/WNyXvBR
