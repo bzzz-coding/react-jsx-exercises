@@ -191,3 +191,33 @@ function Parent() {
 }
 ```
 
+## 7. Dynamically add child components
+https://codepen.io/bzzz-coding/pen/dyKVmzY
+
+### Learning Note:
+- props.children
+Whenever the Parent component is invoked {children} will be displayed. This is a reference to what is between the opening and closing tags of the Parent component.
+
+```
+function Child() {
+  return <div>This is children content</div>;
+}
+
+// Add code only here
+function Parent({children}) {
+  return (
+    <div>
+      <h3>Parent Component</h3>
+      {children}
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Parent>
+      <Child />
+    </Parent>
+  );
+}
+```
