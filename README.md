@@ -50,3 +50,29 @@ function App() {
   );
 }
 ```
+
+## 4. 2-way Data Binding
+https://codepen.io/bzzz-coding/pen/JjZrWqM
+
+### Learning Note:
+- Have each attribute on separate line; 
+- Set value to {text}; 
+- Don't forget to pass in e in onChange for input
+
+```
+function App() {
+  const [text, setText] = React.useState("");
+
+  return (
+    <>
+      <input
+        onChange={(e) => setText(e.target.value)}
+        value={text}
+        type="text"
+        placeholder="Enter Text"
+      />
+      <p>{text}</p>
+    </>
+  );
+}
+```
