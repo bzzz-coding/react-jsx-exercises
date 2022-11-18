@@ -259,3 +259,6 @@ const [userData, setUserData] = React.useState({});
 
 ## 11. Filter List of Strings Based on Search Input
 https://codepen.io/bzzz-coding/pen/WNyXvBR
+
+## 12. Carousel with Carets
+https://codepen.io/bzzz-coding/pen/zYaPraB
